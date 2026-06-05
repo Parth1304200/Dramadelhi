@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #63327D;
+  --color-dark-purple: #4A235F;
+  --color-dark-bg: #1A1023;
+  --color-deep-black: #24142E;
+  --color-cream: #F6F2EB;
+  --color-gold: #D4AF37;
+  --color-text-light: #F5F5F5;
+
+  --color-darkBg: #1A1023;
+  --color-textLight: #F5F5F5;
+
+  --font-playfair: 'Playfair Display', serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #1A1023;
+  color: #F5F5F5;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: #63327D #1A1023;
+}
+
+/* Custom selection */
+::selection {
+  background-color: #D4AF37;
+  color: #1A1023;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1A1023;
+}
+::-webkit-scrollbar-thumb {
+  background: #4A235F;
+  border-radius: 4px;
+  border: 2px solid #1A1023;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #63327D;
+}
+
+/* Lenis smooth scroll support */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Luxury visual utility classes */
+.glass-card {
+  background: rgba(36, 20, 46, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.glass-card:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(99, 50, 125, 0.3);
+}
+
+/* Framed luxury card with offset borders */
+.luxury-frame {
+  position: relative;
+  display: inline-block;
+  padding: 12px;
+}
+
+.luxury-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  pointer-events: none;
+  z-index: 10;
+  transition: all 0.5s ease;
+}
+
+.luxury-frame::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  pointer-events: none;
+  z-index: 5;
+  transition: all 0.5s ease;
+}
+
+.luxury-frame:hover::before {
+  transform: translate(6px, 6px);
+  border-color: rgba(212, 175, 55, 0.8);
+}
+
+.luxury-frame:hover::after {
+  transform: translate(-6px, -6px);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.luxury-frame-img {
+  position: relative;
+  z-index: 8;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Animated Underline for Links */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: #D4AF37;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Luxury button glow effects */
+.btn-glow-gold {
+  box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-glow-gold:hover {
+  box-shadow: 0 0 15px 3px rgba(212, 175, 55, 0.3);
+  border-color: #D4AF37;
+}
+
+.btn-glow-purple {
+  box-shadow: 0 0 0 0 rgba(99, 50, 125, 0);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-glow-purple:hover {
+  box-shadow: 0 0 15px 3px rgba(99, 50, 125, 0.4);
+  border-color: rgba(99, 50, 125, 0.8);
+}
+
+/* Custom fade-in and scale-in animations for GSAP */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
